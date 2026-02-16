@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Project IPPO: Mobile</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+</head>
+<body>
+    <div id="game-world"></div>
+
+    <div id="vfx-layer">
+        <div id="speed-lines"></div>
+        <div id="flash-overlay"></div>
+        <div id="damage-overlay"></div>
+        <div id="critical-text">COUNTER!</div>
+    </div>
+
+    <div id="ui-hud">
+        <div class="top-bar">
+            <div class="player-stats">
+                <div class="name">YOU</div>
+                <div class="bar-frame"><div id="hp-bar" class="fill hp"></div></div>
+                <div class="bar-frame stamina"><div id="st-bar" class="fill st"></div></div>
+            </div>
+            <div class="enemy-stats">
+                <div class="name">CHAMPION</div>
+                <div class="bar-frame"><div id="enemy-hp-bar" class="fill hp"></div></div>
+            </div>
+        </div>
+
+        <div id="controls">
+            <div class="touch-zone" data-act="jab" style="top:0; left:0;"></div> <div class="touch-zone" data-act="straight" style="top:0; left:50%;"></div> <div class="touch-zone" data-act="hook" style="top:50%; left:0;"></div> <div class="touch-zone" data-act="upper" style="top:50%; left:50%;"></div> </div>
+        
+        <button id="menu-btn" onclick="toggleDashboard()">GYM & GACHA</button>
+    </div>
+
+    <div id="dashboard" class="hidden">
+        <h2>GYM DASHBOARD</h2>
+        <div class="stats-panel">
+            <p>STR: <span id="stat-str">0</span></p>
+            <p>AGI: <span id="stat-agi">0</span></p>
+            <p>Cash: $<span id="stat-cash">0</span></p>
+        </div>
+        <button class="gacha-btn" onclick="rollGacha()">ROLL GACHA (500$)</button>
+        <div id="gacha-result"></div>
+        <button class="close-btn" onclick="toggleDashboard()">BACK TO FIGHT</button>
+    </div>
+
+    <script src="rpg_system.js"></script>
+    <script src="combat_engine.js"></script>
+</body>
+</html>
